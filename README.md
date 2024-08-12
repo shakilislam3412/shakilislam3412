@@ -1,6 +1,6 @@
 # Hi there, I'm Shakil Islam 👋
 
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=shakilislam3412.shakilislam3412) ![GitHub followers](https://img.shields.io/github/followers/shakilislam3412?label=Follow&style=social)
+![GitHub followers](https://img.shields.io/github/followers/shakilislam3412?label=Follow&style=social)
 
 ## 🚀 About Me
 
