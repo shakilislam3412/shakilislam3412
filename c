@@ -1,49 +1,29 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main() {
-    int row, col;
+    char str[100], ch;
+    int i, j = 0;
 
-    // Take input for rows and columns
-    printf("Enter the value of row: ");
-    scanf("%d", &row);
-    printf("Enter the value of col: ");
-    scanf("%d", &col);
+    // Take input for the string and the character to be deleted
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
 
-    // Check if the matrix is square
-    if (row != col) {
-        printf("Trace is only defined for square matrices.\n");
-        return 1;
-    }
+    printf("Enter the character: ");
+    scanf("%c", &ch);
 
-    // Allocate memory for the 2D array
-    int **arr = (int **)malloc(row * sizeof(int *));
-    for (int i = 0; i < row; i++) {
-        arr[i] = (int *)malloc(col * sizeof(int));
-    }
-
-    // Read matrix elements
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            printf("Enter the %d element: ", i * col + j);
-            scanf("%d", &arr[i][j]);
+    // Remove occurrences of the character from the string
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ch) {
+            str[j++] = str[i];
         }
     }
 
-    // Compute the trace
-    int trace = 0;
-    for (int i = 0; i < row; i++) {
-        trace += arr[i][i];
-    }
+    // Null terminate the new string
+    str[j] = '\0';
 
-    // Print the trace
-    printf("The trace is %d\n", trace);
-
-    // Free allocated memory
-    for (int i = 0; i < row; i++) {
-        free(arr[i]);
-    }
-    free(arr);
+    // Print the new string
+    printf("New string is %s", str);
 
     return 0;
 }
