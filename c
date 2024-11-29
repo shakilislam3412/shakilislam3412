@@ -1,87 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int N, sum = 0;
+    int N, num, largest, smallest;
 
-    printf("Enter the number N: ");
+    printf("Enter the value of N: ");
     scanf("%d", &N);
 
-    for (int i = 1; i <= N; i++) {
-        if (i % 3 != 0) {
-            sum += i;
-        }
-    }
-
-    printf("The sum of the series is %d.\n", sum);
-
-    return 0;
-}
-
-
-
-
-
-#include <stdio.h>
-
-int main() {
-    int num1, num2, num3, max, min;
-
-    printf("Enter the three numbers: ");
-    scanf("%d %d %d", &num1, &num2, &num3);
-
-    max = (num1 > num2) ? (num1 > num3 ? num1 : num3) : (num2 > num3 ? num2 : num3);
-    min = (num1 < num2) ? (num1 < num3 ? num1 : num3) : (num2 < num3 ? num2 : num3);
-
-    printf("The maximum of the three numbers is %d.\n", max);
-    printf("The minimum of the three numbers is %d.\n", min);
-
-    return 0;
-}
-
-
-
-
-
-#include <stdio.h>
-
-int main() {
-    int n, num;
-
-    printf("Enter the number of cases: ");
-    scanf("%d", &n);
-
-    for (int i = 1; i <= n; i++) {
-        printf("Enter number %d: ", i);
-        scanf("%d", &num);
-
-        if (num % 2 == 0) {
-            printf("The number is even.\n");
-        } else {
-            printf("The number is odd.\n");
-        }
-    }
-
-    return 0;
-}
-
-
-
-
-
-#include <stdio.h>
-
-int main() {
-    int num, count = 0;
-
-    printf("Enter the number: ");
+    printf("Enter the %d values: ", N);
     scanf("%d", &num);
+    largest = smallest = num;
 
-    while (num > 0) {
-        num /= 10;
-        count++;
+    for (int i = 1; i < N; i++) {
+        scanf("%d", &num);
+        if (num > largest) largest = num;
+        if (num < smallest) smallest = num;
     }
 
-    printf("The number of digits in the number is %d.\n", count);
+    printf("The largest value is %d, and the smallest value is %d.\n", largest, smallest);
 
     return 0;
 }
@@ -89,3 +24,21 @@ int main() {
 
 
 
+#include <stdio.h>
+
+int main() {
+    int a, b, temp;
+
+    printf("Enter the value of two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    printf("The HCF is %d.\n", a);
+
+    return 0;
+}
