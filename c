@@ -1,22 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int N, num, largest, smallest;
+    int X, Y;
 
-    printf("Enter the value of N: ");
-    scanf("%d", &N);
+    printf("Enter the values of X and Y: ");
+    scanf("%d %d", &X, &Y);
 
-    printf("Enter the %d values: ", N);
-    scanf("%d", &num);
-    largest = smallest = num;
-
-    for (int i = 1; i < N; i++) {
-        scanf("%d", &num);
-        if (num > largest) largest = num;
-        if (num < smallest) smallest = num;
+    if (X > Y) {
+        printf("No even numbers are possible.\n");
+    } else {
+        printf("The even numbers are: ");
+        for (int i = X; i <= Y; i++) {
+            if (i % 2 == 0) {
+                printf("%d ", i);
+            }
+        }
+        printf("\n");
     }
-
-    printf("The largest value is %d, and the smallest value is %d.\n", largest, smallest);
 
     return 0;
 }
@@ -24,21 +24,30 @@ int main() {
 
 
 
+
+
+
 #include <stdio.h>
 
 int main() {
-    int a, b, temp;
+    int num, originalNum, remainder, sum = 0;
 
-    printf("Enter the value of two numbers: ");
-    scanf("%d %d", &a, &b);
+    printf("Enter the number: ");
+    scanf("%d", &num);
 
-    while (b != 0) {
-        temp = b;
-        b = a % b;
-        a = temp;
+    originalNum = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        sum += remainder * remainder * remainder;
+        num /= 10;
     }
 
-    printf("The HCF is %d.\n", a);
+    if (sum == originalNum) {
+        printf("The number is an Armstrong number.\n");
+    } else {
+        printf("The number is not an Armstrong number.\n");
+    }
 
     return 0;
 }
