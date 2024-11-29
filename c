@@ -1,23 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int length, breadth, perimeter, area;
+    int A, B;
 
-    printf("Enter the length: ");
-    scanf("%d", &length);
+    printf("Enter the value of A: ");
+    scanf("%d", &A);
 
-    printf("Enter the breadth: ");
-    scanf("%d", &breadth);
+    printf("Enter the value of B: ");
+    scanf("%d", &B);
 
-    perimeter = 2 * (length + breadth);
-    area = length * breadth;
-
-    printf("The perimeter of the rectangle is %d units and area is %d units.\n", perimeter, area);
+    printf("A = %d and B = %d\n", A, B);
 
     return 0;
 }
-
-
 
 
 
@@ -25,18 +20,19 @@ int main() {
 #include <stdio.h>
 
 int main() {
-    int inputDays, years, weeks, days;
+    int angle1, angle2, angle3;
 
-    printf("Enter the number of days: ");
-    scanf("%d", &inputDays);
+    printf("Enter the first angle: ");
+    scanf("%d", &angle1);
 
-    years = inputDays / 365;
-    weeks = (inputDays % 365) / 7;
-    days = inputDays - (years * 365) - (weeks * 7);
+    printf("Enter the second angle: ");
+    scanf("%d", &angle2);
 
-    printf("Years: %d\n", years);
-    printf("Weeks: %d\n", weeks);
-    printf("Days: %d\n", days);
+    angle3 = 180 - (angle1 + angle2);
+
+    printf("The third angle is %d degree\n", angle3);
 
     return 0;
 }
+
+
