@@ -1,35 +1,47 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int matrix[2][2], i, j;
+    int *arr;
+    int n, i;
 
-    printf("Enter the elements of the 2 x 2 matrix\n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 2; j++) {
-            scanf("%d", &matrix[i][j]);
-        }
+    arr = (int*)calloc(3, sizeof(int));
+
+    if (arr == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1;
     }
 
-    printf("Input matrix\n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 2; j++) {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
+    printf("Enter an integer greater than 3: ");
+    scanf("%d", &n);
+
+    if (n <= 3) {
+        printf("Please enter a number greater than 3.\n");
+        free(arr);
+        return -1;
     }
 
-    printf("Odd elements\n");
-    for (i = 0; i < 2; i++) {
-        for (j = 0; j < 2; j++) {
-            if (matrix[i][j] % 2 != 0) {
-                printf("%d\n", matrix[i][j]);
-            }
-        }
+    arr = (int*)realloc(arr, n * sizeof(int));
+
+    if (arr == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1;
     }
+
+    for (i = 3; i < n; i++) {
+        printf("Enter the %d element: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("The array elements are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d\n", arr[i]);
+    }
+
+    free(arr);
 
     return 0;
 }
-
 
 
 
@@ -37,19 +49,31 @@ int main() {
 #include <stdio.h>
 
 int main() {
-    int arr[7], i, freq[5] = {0};
+    char str[100], ch;
+    int i;
 
-    printf("Enter 7 integers in the range 1 to 5\n");
-    for (i = 0; i < 7; i++) {
-        scanf("%d", &arr[i]);
-        if (arr[i] >= 1 && arr[i] <= 5) {
-            freq[arr[i] - 1]++;
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
+
+    printf("Enter the character: ");
+    scanf("%c", &ch);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ch) {
+            printf("Index of %c is %d\n", ch, i);
+            return 0;
         }
     }
 
-    for (i = 0; i < 5; i++) {
-        printf("Frequency of %d is %d\n", i + 1, freq[i]);
-    }
+    printf("Character %c is not present\n", ch);
 
     return 0;
 }
+
+
+
+
+
+
+
+
