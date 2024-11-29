@@ -2,42 +2,31 @@
 #include <stdlib.h>
 
 int main() {
-    int *arr;
-    int n, i;
+    int row, col;
+    scanf("%d", &row);
+    scanf("%d", &col);
 
-    arr = (int*)calloc(3, sizeof(int));
-
-    if (arr == NULL) {
-        printf("Memory allocation failed!\n");
-        return -1;
+    int **arr = (int **)malloc(row * sizeof(int *));
+    for (int i = 0; i < row; i++) {
+        arr[i] = (int *)malloc(col * sizeof(int));
     }
 
-    printf("Enter an integer greater than 3: ");
-    scanf("%d", &n);
-
-    if (n <= 3) {
-        printf("Please enter a number greater than 3.\n");
-        free(arr);
-        return -1;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            scanf("%d", &arr[i][j]);
+        }
     }
 
-    arr = (int*)realloc(arr, n * sizeof(int));
-
-    if (arr == NULL) {
-        printf("Memory allocation failed!\n");
-        return -1;
+    int trace = 0;
+    for (int i = 0; i < row && i < col; i++) {
+        trace += arr[i][i];
     }
 
-    for (i = 3; i < n; i++) {
-        printf("Enter the %d element: ", i + 1);
-        scanf("%d", &arr[i]);
-    }
+    printf("%d\n", trace);
 
-    printf("The array elements are:\n");
-    for (i = 0; i < n; i++) {
-        printf("%d\n", arr[i]);
+    for (int i = 0; i < row; i++) {
+        free(arr[i]);
     }
-
     free(arr);
 
     return 0;
@@ -46,34 +35,37 @@ int main() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
+#include <string.h>
 
 int main() {
     char str[100], ch;
-    int i;
-
-    printf("Enter the string: ");
     fgets(str, sizeof(str), stdin);
-
-    printf("Enter the character: ");
     scanf("%c", &ch);
 
-    for (i = 0; str[i] != '\0'; i++) {
+    int len = strlen(str);
+    for (int i = 0; i < len; i++) {
         if (str[i] == ch) {
-            printf("Index of %c is %d\n", ch, i);
-            return 0;
+            for (int j = i; j < len; j++) {
+                str[j] = str[j + 1];
+            }
+            len--;
+            i--;
         }
     }
 
-    printf("Character %c is not present\n", ch);
-
+    printf("%s", str);
     return 0;
 }
-
-
-
-
-
-
-
-
