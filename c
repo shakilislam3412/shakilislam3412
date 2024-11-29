@@ -1,28 +1,24 @@
 #include <stdio.h>
 
-int perfect(int n) {
+int SumSeries(int a, int n) {
     int sum = 0;
-
-    for (int i = 1; i < n; i++) {
-        if (n % i == 0) {
-            sum += i;
+    for (int i = n; i >= 1; i--) {
+        int term = 1;
+        for (int j = 1; j <= i; j++) {
+            term *= a;
         }
+        sum += term;
     }
-
-    return (sum == n) ? 1 : 0;
+    return sum + 1;
 }
 
 int main() {
-    int n;
+    int a, n;
 
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
+    printf("Enter the values of a and n: ");
+    scanf("%d %d", &a, &n);
 
-    if (perfect(n)) {
-        printf("The number is a perfect number.\n");
-    } else {
-        printf("The number is not a perfect number.\n");
-    }
+    printf("The sum of the series is %d.\n", SumSeries(a, n));
 
     return 0;
 }
