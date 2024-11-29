@@ -1,23 +1,35 @@
 #include <stdio.h>
-#include <math.h>
-
-double area(double a, double b, double c) {
-    double s = 0.5 * (a + b + c);
-    return sqrt(s * (s - a) * (s - b) * (s - c));
-}
-
-double perimeter(double a, double b, double c) {
-    return a + b + c;
-}
 
 int main() {
-    double a, b, c;
+    int matrix1[2][3], matrix2[2][3], sum[2][3];
 
-    printf("Enter the sides of the triangle: ");
-    scanf("%lf %lf %lf", &a, &b, &c);
+    printf("Enter the elements of the first 2 x 3 array:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            scanf("%d", &matrix1[i][j]);
+        }
+    }
 
-    printf("The area of the triangle is %.2lf units.\n", area(a, b, c));
-    printf("The perimeter of the triangle is %.2lf units.\n", perimeter(a, b, c));
+    printf("Enter the elements of the second 2 x 3 array:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            scanf("%d", &matrix2[i][j]);
+        }
+    }
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            sum[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    printf("The sum of the arrays are:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
@@ -25,26 +37,28 @@ int main() {
 
 
 
+
+
+
+
 #include <stdio.h>
 
-long long factorial(int n) {
-    if (n == 0) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
-}
-
 int main() {
-    int n;
+    int arr[5], i, j;
 
-    printf("Enter the number n: ");
-    scanf("%d", &n);
+    printf("Enter 5 integers:\n");
+    for (i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
 
-    if (n < 0) {
-        printf("The number is not a non-negative number.\n");
-    } else {
-        printf("Factorial of %d is %lld.\n", n, factorial(n));
+    printf("Duplicate elements:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = i + 1; j < 5; j++) {
+            if (arr[i] == arr[j]) {
+                printf("%d\n", arr[i]);
+                break;
+            }
+        }
     }
 
     return 0;
