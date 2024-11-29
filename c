@@ -1,24 +1,51 @@
 #include <stdio.h>
+#include <math.h>
 
-int SumSeries(int a, int n) {
-    int sum = 0;
-    for (int i = n; i >= 1; i--) {
-        int term = 1;
-        for (int j = 1; j <= i; j++) {
-            term *= a;
-        }
-        sum += term;
-    }
-    return sum + 1;
+double area(double a, double b, double c) {
+    double s = 0.5 * (a + b + c);
+    return sqrt(s * (s - a) * (s - b) * (s - c));
+}
+
+double perimeter(double a, double b, double c) {
+    return a + b + c;
 }
 
 int main() {
-    int a, n;
+    double a, b, c;
 
-    printf("Enter the values of a and n: ");
-    scanf("%d %d", &a, &n);
+    printf("Enter the sides of the triangle: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
 
-    printf("The sum of the series is %d.\n", SumSeries(a, n));
+    printf("The area of the triangle is %.2lf units.\n", area(a, b, c));
+    printf("The perimeter of the triangle is %.2lf units.\n", perimeter(a, b, c));
+
+    return 0;
+}
+
+
+
+
+#include <stdio.h>
+
+long long factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int n;
+
+    printf("Enter the number n: ");
+    scanf("%d", &n);
+
+    if (n < 0) {
+        printf("The number is not a non-negative number.\n");
+    } else {
+        printf("Factorial of %d is %lld.\n", n, factorial(n));
+    }
 
     return 0;
 }
