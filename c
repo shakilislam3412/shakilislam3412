@@ -34,25 +34,34 @@ int main() {
 
 
 
+
+
+
+
+
+
+
+
 #include <stdio.h>
 
 int main() {
-    int arr[5], i, j;
+    int arr[7], i, freq[5] = {0};
 
-    printf("Enter 5 integers:\n");
-    for (i = 0; i < 5; i++) {
+    printf("Enter 7 integers in the range 1 to 5\n");
+    for (i = 0; i < 7; i++) {
         scanf("%d", &arr[i]);
+        if (arr[i] >= 1 && arr[i] <= 5) {
+            freq[arr[i] - 1]++;
+        }
     }
 
-    printf("Duplicate elements:\n");
     for (i = 0; i < 5; i++) {
-        for (j = i + 1; j < 5; j++) {
-            if (arr[i] == arr[j]) {
-                printf("%d\n", arr[i]);
-                break;
-            }
-        }
+        printf("Frequency of %d is %d\n", i + 1, freq[i]);
     }
 
     return 0;
 }
+
+
+
+
