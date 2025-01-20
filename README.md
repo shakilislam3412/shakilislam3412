@@ -4,7 +4,7 @@
 
 ## 🚀 About Me
 
-I'm Shakil Islam, a passionate learner and developer. I am currently pursuing two degrees: a Bachelor of Science (Honours) in Computer Science from BITS Pilani and a Bachelor of Science (Honours) in Data Science & Artificial Intelligence from IIT Guwahati. Previously, I was a B.Tech CSE student at LPU, but I decided to follow my true passion, which led me to where I am today.
+I'm Shakil Islam, a passionate learner and developer. I am pursuing a Bachelor of Science (Honours) in Data Science & Artificial Intelligence from IIT Guwahati. Previously, I was a B.Tech CSE student at LPU, but I decided to follow my true passion, which led me to where I am today.
 
 - 🌱 I’m currently diving deep into **Data Science and Artificial Intelligence**
 - 🔭 I’m working on **full-stack development projects and AI/ML models**
